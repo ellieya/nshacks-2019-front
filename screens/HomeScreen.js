@@ -1,5 +1,6 @@
 import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
+import { Button, Alert } from 'react-native';
 import {
   Image,
   Platform,
@@ -52,12 +53,14 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
-
+      <View style={styles.container}>
+        <Button title="Yeaasdf" containerViewStyle={{width: '100%', marginLeft: 0}}/>
+      </View>
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
           This is a tab bar. You can edit it in:
         </Text>
-
+        
         <View
           style={[styles.codeHighlightContainer, styles.navigationFilename]}>
           <MonoText style={styles.codeHighlightText}>
