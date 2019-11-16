@@ -2,6 +2,7 @@ import * as WebBrowser from 'expo-web-browser';
 
 import React from 'react';
 import { Button, Alert } from 'react-native';
+import {message} from "./RecordingHandler"
 import {
   Image,
   Platform,
@@ -55,7 +56,8 @@ export default function HomeScreen() {
         </View>
       </ScrollView>
       <View style={styles.container}>
-        <Button title="Yeaasdf" containerViewStyle={{width: '100%', marginLeft: 0}}/>
+        <Button title="Yeaasdf" containerViewStyle={{width: '100%', marginLeft: 0}}
+        onPress={()=>message()}/>
       </View>
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>

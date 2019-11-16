@@ -45,11 +45,7 @@ const LinksStack = createStackNavigator(
 LinksStack.navigationOptions = {
   tabBarLabel: 'Resources',
   tabBarIcon: ({ focused }) => (
-<<<<<<< Updated upstream
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-information-circle'} />
-=======
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-information-circle' : 'md-information-circle'} />
->>>>>>> Stashed changes
   ),
 };
 
