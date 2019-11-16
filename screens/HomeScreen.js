@@ -6,9 +6,12 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  Button,
+  Alert,
   TouchableOpacity,
   View,
 } from 'react-native';
+import {message} from './RecordingHandler';
 
 import { MonoText } from '../components/StyledText';
 
@@ -51,6 +54,12 @@ export default function HomeScreen() {
             </Text>
           </TouchableOpacity>
         </View>
+        <View>
+        <Button
+            title="Left button"
+            onPress={()=>{message()}}
+          />
+          </View>
       </ScrollView>
 
       <View style={styles.tabBarInfoContainer}>
