@@ -5,74 +5,78 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
-  Text,
-  Button,
   Alert,
   TouchableOpacity,
   View,
 } from 'react-native';
-import {message} from './RecordingHandler';
+import {RecordingButton} from './RecordingHandler';
+import { Header } from 'react-native-elements';
+import { Tile } from 'react-native-elements';
+import { Divider } from 'react-native-elements';
+import { Text } from 'react-native-elements';
+import { Button } from 'react-native-elements';
+import { Card } from 'react-native-elements';
+
 
 import { MonoText } from '../components/StyledText';
 
 export default function HomeScreen() {
+  
+
   return (
+
     <View style={styles.container}>
+      <Header style={styles.headerStyle}
+          placement="center"
+          centerComponent={{ text: 'SECOND CHANCE', style: { color: '#fff' } }}
+            />
+      
       <ScrollView
         style={styles.container}
         contentContainerStyle={styles.contentContainer}>
+        
         <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
+          <Tile
+          imageSrc={require('../assets/images/helpinghand.jpg')}
+          title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores dolore exercitationem"
+          featured
+          caption="Some Caption Text"
+        />
         </View>
 
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Hello, welcome to our app
-          </Text>
-        </View>
-
+      
+      <View style={styles.lowerHalf}>
         <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
+        <Card style={styles.cardBgColor}
+          title='Welcome to Second Chance'
+            >
+          <Text style={{marginBottom: 30}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt 
+            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
+
+          </Text>
+          
+        </Card>
+    
         </View>
-        <View>
-        <Button
-            title="Left button"
-            onPress={()=>{message()}}
-          />
+
+       
+        <View style={styles.buttonStyle}>
+          <RecordingButton/>
+
           </View>
+        </View>
+   
       </ScrollView>
+
+
+
 
       <View style={styles.tabBarInfoContainer}>
         <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
+          Tab Bar.
         </Text>
 
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
       </View>
     </View>
   );
@@ -122,6 +126,17 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+  lowerHalf: {
+    backgroundColor: "#f7f7f7",
+    marginTop: 10,
+    height: 150
+  },
+  headerStyle: {
+    height: 40,
+  },
+  cardBgColor: {
+    backgroundColor: 'blue',
+  },
   developmentModeText: {
     marginBottom: 20,
     color: 'rgba(0,0,0,0.4)',
@@ -129,24 +144,32 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     textAlign: 'center',
   },
-  contentContainer: {
-    paddingTop: 30,
-  },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
+    marginTop: 0,
+    marginBottom: 0,
+    backgroundColor: '#fff',
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
+  appNameContainer: {
     alignItems: 'center',
-    marginHorizontal: 50,
+    marginHorizontal: 60,
+  },
+  appNameText: {
+    fontSize: 25,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'center',
+  },
+  buttonStyle: {
+    marginTop: 20,
+    padding: 10,
+    backgroundColor: '#1e90ff',
+    color: '#fff',
+    height: 100,
+    lineHeight: 90
+  },
+  buttonText: {
+    color: '#fff',
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -158,12 +181,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.05)',
     borderRadius: 3,
     paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
   },
   tabBarInfoContainer: {
     position: 'absolute',
@@ -194,7 +211,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   helpContainer: {
-    marginTop: 15,
+    marginTop: 0,
     alignItems: 'center',
   },
   helpLink: {
